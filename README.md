@@ -1,16 +1,9 @@
-# pokedex
+# Cara menjalankan proyek (VSCode dan Android Studio)
+1. Buka Android Studio
+2. Masuk ke AVD Manager
+3. Klik logo Start pada emulator yang diinginkan. Buat terlebih dahulu jika belum ada emulator
+4. Setelah emulator menyala, buka proyek menggunakan IDE. 
+5. Pada pojok kanan bawah pastikan device dari project Flutter adalah nama emulator yang dijalankan.
+6. Buka terminal dan jalankan command "flutter run".
+7. Proyek berjalan secara lokal dan dalam development environment. 
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

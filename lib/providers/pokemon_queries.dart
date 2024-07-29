@@ -10,6 +10,18 @@ const String fetchPokemonsQuery = r'''
   }
 ''';
 
+const String fetchPokemonsByTypeQuery = r'''
+  query {
+    pokemons(where: 200) {
+      id
+      number
+      name
+      types
+      image
+    }
+  }
+''';
+
 String fetchPokemonQuery = r'''
     query getPokemon($id: String) {
       pokemon(id: $id) {
@@ -44,6 +56,10 @@ String fetchPokemonQuery = r'''
         evolutions {
           name
           image
+        }
+        evolutionRequirements {
+          name
+          amount
         }
         maxHP
         image

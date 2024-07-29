@@ -34,7 +34,7 @@ class PokemonListItem extends StatelessWidget {
                   color: Colors.black.withOpacity(0.3),
                   spreadRadius: 3,
                   blurRadius: 7,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 )
               ]),
           child: Row(
@@ -43,7 +43,7 @@ class PokemonListItem extends StatelessWidget {
               Expanded(
                   flex: 4,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(12),
                         bottomLeft: Radius.circular(12)),
                     child: Image.network(
@@ -53,7 +53,7 @@ class PokemonListItem extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   )),
-              Expanded(
+              const Expanded(
                 flex: 1,
                 child: SizedBox(width: 33),
               ),

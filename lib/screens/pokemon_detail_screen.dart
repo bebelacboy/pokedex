@@ -28,6 +28,7 @@ class PokemonDetailScreen extends StatelessWidget {
                     SliverAppBar(
                       expandedHeight: 200,
                       floating: false,
+                      foregroundColor: Colors.white,
                       backgroundColor: provider.isLoading
                           ? Colors.grey
                           : pokemonTypeToColor[provider.pokemon!.types[0]],
@@ -36,8 +37,8 @@ class PokemonDetailScreen extends StatelessWidget {
                           ? FlexibleSpaceBar(
                               background: Container(
                                 alignment: Alignment.center,
-                                child: Text("Retrieving Pokemon",
-                                    style: const TextStyle(
+                                child: const Text("Retrieving Pokemon",
+                                    style:  TextStyle(
                                         fontSize: 15.0,
                                         color: Colors.black,
                                         fontWeight: FontWeight.w700)),
@@ -46,21 +47,21 @@ class PokemonDetailScreen extends StatelessWidget {
                             )
                           : FlexibleSpaceBar(
                               background: Container(
-                                  margin: EdgeInsets.symmetric(
+                                  margin: const EdgeInsets.symmetric(
                                       horizontal: 5, vertical: 10),
                                   child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         ClipRRect(
-                                            borderRadius: BorderRadius.all(
+                                            borderRadius: const BorderRadius.all(
                                                 Radius.circular(10)),
                                             child: Image.network(
                                               provider.pokemon!.image,
                                               width: 90,
                                               fit: BoxFit.contain,
                                             )),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 15,
                                         ),
                                         Column(
@@ -96,7 +97,7 @@ class PokemonDetailScreen extends StatelessWidget {
                                           ],
                                         )
                                       ]))),
-                      bottom: TabBar(
+                      bottom: const TabBar(
                           indicatorColor: Colors.black,
                           labelColor: Colors.black,
                           unselectedLabelColor: Colors.white,
@@ -113,7 +114,7 @@ class PokemonDetailScreen extends StatelessWidget {
                 body: TabBarView(
                   children: [
                     provider.isLoading
-                        ? Center(child: CircularProgressIndicator())
+                        ? const Center(child: CircularProgressIndicator())
                         : AboutTab(
                             maxHp: provider.pokemon!.maxHp!,
                             minHeight: provider.pokemon!.minHeight!,
@@ -126,13 +127,20 @@ class PokemonDetailScreen extends StatelessWidget {
                             classification: provider.pokemon!.classification!,
                           ),
                     provider.isLoading
-                        ? Center(child: CircularProgressIndicator())
+                        ? const Center(child: CircularProgressIndicator())
                         : AttacksTab(
                             fastAttacks: provider.pokemon!.fastAttacks!,
                             specialAttacks: provider.pokemon!.specialAttacks!,
                           ),
                     provider.isLoading
-                        ? Center(child: CircularProgressIndicator()) : EvolutionTab(evolutions: provider.pokemon?.evolutions)
+                        ? const Center(child: CircularProgressIndicator())
+                        : EvolutionTab(
+                            evolutions: provider.pokemon?.evolutions,
+                            evolutionRequirementName:
+                                provider.pokemon?.evolutionRequirementName,
+                            evolutionRequirementAmount:
+                                provider.pokemon?.evolutionRequirementAmount,
+                          )
                   ],
                 ),
               );

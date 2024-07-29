@@ -21,10 +21,10 @@ class AttackCard extends StatelessWidget {
                   color: Colors.black.withOpacity(0.3),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 )]
               ),
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -35,15 +35,15 @@ class AttackCard extends StatelessWidget {
               Text(
                 name,
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               PokemonTypeTag(type: type)
             ]),
             Column(children: <Widget>[
-              Text("Damage", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
-              SizedBox(height: 8,),
-              Text("$damage", style: TextStyle(color: Colors.white),)
+              const Text("Damage", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+              const SizedBox(height: 8,),
+              Text("$damage", style: const TextStyle(color: Colors.white),)
             ],)
           ],
         ));

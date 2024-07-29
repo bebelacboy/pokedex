@@ -3,15 +3,17 @@ import 'package:pokedex/models/pokemon_evolution_model.dart';
 
 class EvolutionTab extends StatelessWidget {
   final List<PokemonEvolution>? evolutions;
+  final String? evolutionRequirementName;
+  final int? evolutionRequirementAmount;
 
-  const EvolutionTab({super.key, this.evolutions});
+  const EvolutionTab({super.key, this.evolutions, this.evolutionRequirementName, this.evolutionRequirementAmount});
 
   @override
   Widget build(BuildContext context) {
     if (evolutions == null) {
       return Container(
-        margin: EdgeInsets.all(40),
-        child: Text(
+        margin: const EdgeInsets.all(40),
+        child: const Text(
           'No pokemon evolution',
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
@@ -19,8 +21,11 @@ class EvolutionTab extends StatelessWidget {
       );
     }
     return Container(
-        margin: EdgeInsets.all(40),
-        child: Wrap(
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        child: Column(children: <Widget>[
+          Text("$evolutionRequirementAmount $evolutionRequirementName to evolve",textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
+          const SizedBox(height: 20,),
+       Wrap(
           alignment: WrapAlignment.center,
           spacing: 15,
           runSpacing: 15,
@@ -34,14 +39,17 @@ class EvolutionTab extends StatelessWidget {
                   height: 130.0,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   evolution.name,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 )
               ],
             );
           }).toList(),
-        ));
+        )
+        ],
+        ) 
+        );
   }
 }

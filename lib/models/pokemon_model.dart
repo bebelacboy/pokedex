@@ -19,6 +19,8 @@ class Pokemon {
   final List<PokemonAttack>? fastAttacks;
   final List<PokemonAttack>? specialAttacks;
   final List<PokemonEvolution>? evolutions;
+  final String? evolutionRequirementName;
+  final int? evolutionRequirementAmount;
 
   Pokemon(
       {required this.id,
@@ -37,7 +39,9 @@ class Pokemon {
       this.weaknesses,
       this.fastAttacks,
       this.specialAttacks,
-      this.evolutions});
+      this.evolutions,
+      this.evolutionRequirementName,
+      this.evolutionRequirementAmount});
 
   factory Pokemon.fromJson(Map<String, dynamic> json) {
     return Pokemon(
@@ -76,9 +80,13 @@ class Pokemon {
                 return PokemonAttack.fromJson(attack);
               }).toList()
             : null,
-            evolutions: json['evolutions'] != null ? List<dynamic>.from(json['evolutions']).map((evolution) {
-              return PokemonEvolution.fromJson(evolution);
-            }).toList() : null);
+        evolutions: json['evolutions'] != null
+            ? List<dynamic>.from(json['evolutions']).map((evolution) {
+                return PokemonEvolution.fromJson(evolution);
+              }).toList()
+            : null,
+        evolutionRequirementName: json['evolutionRequirements'] != null ? Map<String, dynamic>.from(json['evolutionRequirements'])['name'] as String : null,
+        evolutionRequirementAmount: json['evolutionRequirements'] != null ? Map<String, dynamic>.from(json['evolutionRequirements'])['amount'] as int : null);
   }
 
   Map<String, dynamic> toJson() {
@@ -99,7 +107,9 @@ class Pokemon {
       'resistant': resistant,
       'fastAttacks': fastAttacks,
       'specialAttacks': specialAttacks,
-      'evolutions': evolutions
+      'evolutions': evolutions,
+      'evolutionRequirementName': evolutionRequirementName,
+      'evolutionRequirementAmount': evolutionRequirementAmount
     };
   }
 }

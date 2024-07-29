@@ -27,14 +27,14 @@ class AboutTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(25),
+        margin: const EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Expanded(
+                const Expanded(
                     flex: 1,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,28 +72,28 @@ class AboutTab extends StatelessWidget {
                       children: <Widget>[
                         Text(
                             "${((minHeight + maxHeight) / 2).toStringAsFixed(2)} m",
-                            style: TextStyle(color: Colors.black)),
-                          SizedBox(height: 8,),
+                            style: const TextStyle(color: Colors.black)),
+                          const SizedBox(height: 8,),
                         Text(
                             "${((minHeight + maxWeight) / 2).toStringAsFixed(2)} kg",
-                            style: TextStyle(color: Colors.black)),
-                          SizedBox(height: 8,),
-                        Text("$maxHp", style: TextStyle(color: Colors.black)),
-                          SizedBox(height: 8,),
+                            style: const TextStyle(color: Colors.black)),
+                          const SizedBox(height: 8,),
+                        Text("$maxHp", style: const TextStyle(color: Colors.black)),
+                          const SizedBox(height: 8,),
                         Text("${fleeRate.toStringAsFixed(2)}",
-                            style: TextStyle(color: Colors.black)),
-                          SizedBox(height: 8,),
+                            style: const TextStyle(color: Colors.black)),
+                          const SizedBox(height: 8,),
                         Text("$classification",
-                            style: TextStyle(color: Colors.black)),
-                          SizedBox(height: 8,),
+                            style: const TextStyle(color: Colors.black)),
+                          const SizedBox(height: 8,),
                       ],
                     )),
               ],
             ),
-            Text("Resistant",
+            const Text("Resistant",
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
             Wrap(
                 spacing: 8,
                 runSpacing: 8,
@@ -102,11 +102,11 @@ class AboutTab extends StatelessWidget {
                     .map((type) => Container(
                         width: 100, child: PokemonTypeTag(type: type)))
                     .toList()),
-                    SizedBox(height: 8),
-            Text("Weaknesses",
+                    const SizedBox(height: 8),
+            const Text("Weaknesses",
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
             Wrap(
                 spacing: 8,
                 runSpacing: 8,

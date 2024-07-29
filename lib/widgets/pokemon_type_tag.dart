@@ -4,14 +4,17 @@ import 'package:pokedex/constants/pokemon_type_icon_mapping.dart';
 
 class PokemonTypeTag extends StatelessWidget {
   final String type;
+  final VoidCallback? onTap;
 
-  const PokemonTypeTag({super.key, required this.type});
+  const PokemonTypeTag({super.key, required this.type, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(5),
-      margin: EdgeInsets.only(right: 10),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+      padding: const EdgeInsets.all(5),
+      margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
           color: pokemonTypeToColor[type],
           borderRadius: BorderRadius.circular(6),
@@ -20,7 +23,7 @@ class PokemonTypeTag extends StatelessWidget {
               color: Colors.black.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 0),
+    
             )
           ]),
       child: Row(children: [
@@ -29,9 +32,12 @@ class PokemonTypeTag extends StatelessWidget {
           color: Colors.white,
           size: 15,
         ),
-        SizedBox(width: 3),
-        Text(type, style: TextStyle(color: Colors.white, fontSize: 15))
+        const SizedBox(width: 3),
+        Text(type, style: const TextStyle(color: Colors.white, fontSize: 15))
       ]),
+    )
     );
+
+    
   }
 }

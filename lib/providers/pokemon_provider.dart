@@ -28,11 +28,30 @@ class PokemonProvider with ChangeNotifier {
       final List<dynamic> data = result.data?['pokemons'];
       _pokemons =
           data.map((pokemonJson) => Pokemon.fromJson(pokemonJson)).toList();
-    } else {
-      print(result.exception.toString());
     }
     _isListLoading = false;
     notifyListeners();
+  }
+
+  void filterPokemonsByType(String type) async {
+    _isListLoading = true;
+    notifyListeners();
+    final QueryOptions options =
+        QueryOptions(document: gql(fetchPokemonsQuery));
+
+    final QueryResult result = await client.query(options);
+
+    if (!result.hasException) {
+      final List<dynamic> data = result.data?['pokemons'];
+      _pokemons =
+          (data.map((pokemonJson) => Pokemon.fromJson(pokemonJson)).toList())
+              .where((pokemon) => pokemon.types.contains(type))
+              .toList();
+    }
+    _isListLoading = false;
+    notifyListeners();
+    _pokemons =
+        _pokemons.where((pokemon) => pokemon.types.contains(type)).toList();
   }
 
   void fetchPokemon(String id) async {
@@ -47,8 +66,6 @@ class PokemonProvider with ChangeNotifier {
       _pokemon = Pokemon.fromJson(result.data?['pokemon']);
       _isLoading = false;
       notifyListeners();
-    } else {
-      print(result.exception.toString());
     }
   }
 }

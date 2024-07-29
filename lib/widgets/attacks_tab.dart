@@ -12,16 +12,16 @@ class AttacksTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(15),
+        margin: const EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Fast Attacks",
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Wrap(
@@ -35,17 +35,17 @@ class AttacksTab extends StatelessWidget {
                     damage: attack.damage);
               }).toList(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
-            Text(
+            const Text(
               "Special Attacks",
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Wrap(
                 alignment: WrapAlignment.center,
                 spacing: 15,
